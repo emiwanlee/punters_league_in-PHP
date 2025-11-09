@@ -1,0 +1,484 @@
+body{
+ margin:2px;
+
+ }
+
+h2{
+  text-align: center;
+}
+.logo a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+header{
+ background-color:#262626;
+ }
+ li{
+ list-style:none;
+ }
+ 
+ a{
+ color:white;
+ text-decoration:none;
+ }
+ .main-body{
+  background-color: whitesmoke;
+ 
+ }
+ .main-body a {
+  
+  color: green;
+  text-decoration: none;
+  display: flex;
+  font-size: large;
+  font-weight: bold;
+  word-spacing: 0.2rem;
+  padding: 5px;
+
+}
+
+ .navbar{
+ min-height:70px;
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ padding: 24px 0;
+ 
+ }
+ 
+ .nav-menu{
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ gap:60px;
+}
+ 
+ .nav-branding{
+ font-size:2rem;
+ }
+ .nav-link{
+ transition:0.7s ease;
+ }
+ .nav-link:hover{
+ color:dodgerblue;
+ }
+ 
+ .hamburger{
+ display:none;
+ cursor:pointer;
+ }
+ .bar{
+ display:block;
+ width:25px;
+ height:3px;
+ margin: 5px auto;
+ -webkit-transition:all 0.3s ease-in-out;
+ transition:all 0.3s ease-in-out;
+ background-color:white;
+ } 
+ 
+ @media(max-width:768px){
+ .hamburger {
+ display:block;
+ }
+ 
+ .hamburger.active .bar:nth-child(2){
+ opacity:0;
+}
+.hamburger.active .bar:nth-child(1){
+ transform:translateY(8px) rotate(45deg);
+}
+
+.hamburger.active .bar:nth-child(3){
+ transform:translateY(-8px) rotate(-45deg);
+}
+.nav-menu{
+position:fixed;
+left:-520px;
+top:70px;
+gap:0;
+flex-direction:column;
+background-color:#262626;
+width:100%;
+text-align:center;
+transition:0.3s;
+}
+.nav-item{
+margin:16px 0;
+}
+.nav-menu.active{
+left:0;
+}
+.web-logo img{
+  height:150px;
+  width:90px;
+}
+}
+
+
+.main-item{
+display:flex;
+
+}
+
+.item{
+padding:1px;
+margin:1px;
+}
+/* Make main layout stack vertically on mobile */
+.main-item {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 10px 0;
+}
+
+.item {
+  flex: 1 1 48%;
+  background: #f9f9f9;
+  padding: 10px;
+  box-sizing: border-box;
+  /*
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);*/
+}
+ 
+
+.stats-container{
+  display: flex;
+  flex-wrap: wrap;
+  gap:20px;
+}
+
+.stats {
+  flex: 1 1 45%; /* grow, shrink, base width */
+  background: #f9f9f9;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  
+  box-shadow:none;
+}
+.table-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr 2fr 1fr; /* Adjust widths as needed */
+  background-color:rgb(3, 17, 170);
+  color:silver;
+  font-weight: bold;
+  padding: 1px;
+  text-align: center;
+  border-bottom: 2px solid #555;
+}
+
+.table-header span {
+  padding: 1px;
+}
+.table-row {
+  display: grid;
+  background-color: #ccd0d4;
+  grid-template-columns: 1fr 1fr 2fr 1fr; /* Adjust widths as needed */
+  padding: 1px;
+  text-align: center;
+}
+.table-row {
+  border-bottom: 1px solid #ddd;
+}
+
+.table-row:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.table-row span,
+.table-header span {
+  padding: 1px;
+}
+/* Full width on smaller screens */
+@media screen and (max-width: 768px) {
+  .item {
+    flex: 1 1 100%;
+  }
+}
+
+/* Responsive table wrapper */
+.item table {
+  width: 100%;
+  border-collapse: collapse;
+  overflow-x: auto;
+  display: block;
+}
+
+.item table thead {
+  background: #333;
+  color: white;
+}
+
+.item table th,
+.item table td {
+  padding: 2px;
+  text-align: left;
+  border: 1px solid #ccc;
+  font-size: 0.9rem;
+}
+
+/* Make table text smaller on mobile */
+@media screen and (max-width: 480px) {
+  .item table th,
+  .item table td {
+    font-size: 0.75rem;
+    padding: 6px;
+  }
+}
+
+/* Optional: Improve link visibility */
+.item a {
+  display: inline-block;
+  margin-top: 10px;
+  color: #0066cc;
+  text-decoration: underline;
+}
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.table-responsive table {
+  width: 100%;
+ min-width: 300px;
+  border-collapse: collapse;
+}
+
+.table-responsive th,
+.table-responsive td {
+  padding: 8px;
+  border: 1px solid #ccc;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+  table-responsive {
+  width: 100%;
+  overflow-x: auto;
+}
+
+  .table-responsive table {
+    min-width: 400px; /* Adjust based on number of columns */
+  }
+}
+
+.tables-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  justify-content: flex-start;
+}
+/*Two in a row, accounting for gap 
+.btts-table {
+  flex: 1 1 calc(50% - 20px);  
+  min-width: 300px;
+  max-width: calc(50% - 20px);
+  background-color: #f9f9f9;
+  padding: 10px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+}
+*/
+.btts-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.btts-table caption {
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.btts-table th,
+.btts-table td {
+  border: 1px solid #ccc;
+  padding: 6px;
+  font-size: 14px;
+  text-align: center;
+}
+
+
+@media (max-width: 768px) {
+  .btts-table {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+}
+
+.chart-container {
+      display: flex;
+      flex-wrap: wrap; /* wrap to next line on small screens */
+      gap: 20px;        /* space between charts */
+      justify-content: center; /* center the charts */
+    }
+
+    .chart-item {
+      width: 300px;
+      text-align: center;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 10px;
+      background-color: #f9f9f9;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .chart-item img {
+      width: 100%;
+      height: auto;
+    }
+
+    h2 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+ 
+
+
+th{
+background-color:black;
+color:white;
+}
+.web-logo{
+display:flex;
+justify-content:center;
+margin-top:1px;
+gap:4;
+}
+.web-logo img{
+border-radius:14%;
+
+}
+
+
+/*  Premiership page*/
+ .season-header{
+background-color:red;
+}
+
+.social-icons {
+  margin: 20px 0;
+}
+
+.social-icons a {
+  margin: 0 8px;
+  display: inline-block;
+}
+
+.social-icons img {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+.social-icons img:hover {
+  transform: scale(1.1);
+}
+/* Fitures in the league pages */
+
+.row{
+  display: flex;
+}
+
+.footer {
+  background-color: #111;
+  color: #eee;
+  padding: 40px 20px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.footer p,
+.footer a,
+.footer label {
+  color: #ccc;
+  font-size: 14px;
+  line-height: 1.6;
+  text-decoration: none;
+}
+
+.footer strong {
+  color: #fff;
+  font-size: 16px;
+}
+
+.footer a:hover {
+  color: #00ccff;
+  text-decoration: underline;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+.footer-links li {
+  display: inline-block;
+}
+
+.newsletter-form {
+  margin: 20px 0;
+}
+
+.newsletter-form input[type="email"] {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  width: 220px;
+  max-width: 80%;
+  margin-bottom: 10px;
+}
+
+.newsletter-form button {
+  padding: 8px 16px;
+  background-color: #00ccff;
+  border: none;
+  border-radius: 4px;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.newsletter-form button:hover {
+  background-color: #009ec3;
+}
+
+
+
+.social-icons img:hover {
+  transform: scale(1.1);
+}
+
+.disclaimer {
+  font-size: 12px;
+  color: #999;
+  margin-top: 15px;
+}
+.contact_us{
+  font-size: large;
+  background-color: #000;
+  color: #eee;
+}
+.analysis-header{
+  text-align: center;
+}
+*/
+.chart-img {
+  width: 300px;     /* adjust width */
+  height: auto;     /* keep aspect ratio */
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  display: block;
+  margin: 20px auto;
+}
