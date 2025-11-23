@@ -29,17 +29,17 @@ $leagues =[
 ],
 
 	"fixtures" => [
-    ["Tottenham", "Manchester United"],
-    ["Everton", "Fulham"],
-    ["West Ham", "Burnley"],
-	["Sunderland", "Arsenal"],
-	["Chelsea", "Wolves"],
-	["Crystal Palace", "Brentford"],
-	["Aston Villa", "Bournemouth"],
-	["Brentford", "Newcastle"],
-	["Nottingham", "Leeds"],
-	["Everton", "Fulham"],
-	["Manchester City", "Liverpool"],
+    ["Brentford", "Burnley"],
+    ["Sunderland", "Bournemouth"],
+    ["Manchester City", "Leeds"],
+	["Everton", "Newcastle"],
+	["Tottenham", "Fulham"],
+	["Crystal Palace", "Manchester United"],
+	["West Ham", "Liverpool"],
+	["Aston Villa", "Wolves"],
+	["Nottingham", "Brighton"],
+	["Chelsea", "Arsenal"],
+	//["Manchester United", "Everton"],
 
 ]
 
@@ -69,16 +69,16 @@ $leagues =[
     [ "team" => "Valladolid", "MP" => 38, "MW" => 4, "MD" => 4, "GF" => 26, "GA" => 90 ]
 	],
 	"fixtures" =>[
-	 ["Elche", "Real Sociedad"],
-    ["Girona", "Alaves"],
-	["Sevilla", "Osasuna"],
-    ["Atletico Madrid", "Levante"],
-    ["Espanyol", "Villarreal"],
-    ["Athletic Club", "Oviedo"],
-    ["Rayo Vallecano", "Real Madrid"],
-	["Mallorca", "Getafe"],
-	["Valencia", "Real Betis"],
-	["Celta Vigo", "Barcelona"]
+	 ["Getafe", "Elche"],
+    ["Mallorca", "Osasuna"],
+	["Barcelona", "Alaves"],
+    ["Levante", "Athletic Club"],
+    ["Atletico Madrid", "Oviedo"],
+    ["Real Sociedad", "Villarreal"],
+    ["Sevilla", "Real Betis"],
+	["Celta Vigo", "Espanyol"],
+	["Girona", "Real Madrid"],
+	["Rayo Vallecano", "Valencia"]
 	]
 	],
 	
@@ -107,16 +107,16 @@ $leagues =[
 ],
 
 "fixtures" => [
-    ["Pisa", "Cremonese"],
-    ["Como", "Cagliari"],
-    ["Leece", "Verona"],
-    ["Juventus", "Torino"],
-    ["Parma", "Milan"],
-    ["Atalanta", "Sassulo"],
-    ["Bologna", "Napoli"],
-    ["Genoa", "Fiorentina"],
-    ["Roma", "Udinese"],
-    ["Inter", "Lazio"],
+    ["Como", "Sassuolo"],
+    ["Parma", "Udinese"],
+    ["Genoa", "Verona"],
+    ["Juventus", "Cagliari"],
+    ["Milan", "Lazio"],
+    ["Leece", "Torino"],
+    ["Pisa", "Inter"],
+    ["Atalanta", "Fiorentina"],
+    ["Roma", "Napoli"],
+    ["Bologna", "Cremonese"],
 ]
 ],
 	
@@ -144,15 +144,16 @@ $leagues =[
 ],
 
 "fixtures" => [
-    ["Paris", "Rennes"],
-    ["Marseille", "Brest"],
-    ["Le Havre", "Nantes"],
-    ["Monaco", "Lens"],
-    ["Lorient", "Toulouse"],
-    ["Metz", "Nice"],
-    ["Angers", "Auxerre"],
-    ["Strasbourg", "Lille"],
-    ["Lyon", "PSG"],
+    ["Metz", "Rennes"],
+    ["Monaco", "PSG"],
+    ["Rennes", "Monaco"],
+    ["Paris", "Auxerre"],
+    ["Marseille", "Toulouse"],
+    ["Strasbourg", "Brest"],
+    ["Lorient", "Nice"],
+    ["Angers", "Lens"],
+    ["Le Havre", "Lille"],
+    ["Lyon", "Nantes"]
 ]
 ],
 
@@ -179,15 +180,15 @@ $leagues =[
 ],
 
 "fixtures" => [
-    ["Werder", "Wolfsburg"],
-    ["Hoffenheim", "Leipzig"],
-    ["Leverkusen", "Heidenheim"],
-    ["Hamburger", "Dortmund"],
-    ["Union Berlin", "Bayern"],
-    ["Monchengladbach", "Koln"],
-    ["Freiburg", "St. Pauli"],
-    ["Stuttgart", "Augsburg"],
-    ["Frankfurt", "Mainz"],
+    ["Monchengladbach", "Leipzig"],
+    ["Union Berlin", "Heidenheim"],
+    ["Bayern", "St. Pauli"],
+    ["Werder", "Koln"],
+    ["Hoffenheim", "Augsburg"],
+    ["Leverkusen", "Dortmund"],
+    ["Hamburger", "Stuttgart"],
+    ["Frankfurt", "Wolfsburg"],
+    ["Freiburg", "Mainz"],
     //["Stuttgart", "Mainz"],
 ]
 ],
@@ -215,15 +216,15 @@ $leagues =[
 ],
 
 "fixtures" => [
-    ["Twente", "Telstar"],
-    ["Excelsior", "Heracles"],
-    ["Volendam", "NAC"],
-    ["Fortuna Sittard", "Heerenveen"],
-    ["Zwolle", "Sparta Rotterdam"],
-    ["Utrecht", "Ajax"],
-    ["NEC", "Groningen"],
-    ["AZ Alkmaar", "PSV"],
-    ["Go Ahead Eagles", "Feyenoord"]
+    ["Zwolle", "Heerenveen"],
+    ["Excelsior", "NAC"],
+    ["Fortuna Sittard", "Heracles"],
+    ["NEC", "Sparta Rotterdam"],
+    ["PSV", "Volendam"],
+    ["Go Ahead Eagles", "Utrecht"],
+    ["Telstar", "Feyenoord"],
+    ["Twente", "AZ Alkmaar"],
+    ["Ajax", "Groningen"]
 ]
 ],
 
@@ -248,14 +249,14 @@ $leagues =[
 ],
 
 "fixtures" => [
-    ["Dender", "Zulte Waregem"],
-    ["Cercle Brugge", "Oud Herverlee Leuven"],
-    ["Charleroi", "Westerlo"],
-    ["Antwerp", "La Louviere"],
-    ["STVV", "Standard"],
-    ["Gent", "Genk"],
-    ["Mechelen", "Union Saint Gilloise"],
-    ["Anderlecht ", "Club Brugge"]
+    ["Mechelen", "Standard"],
+    ["Dender", "Westerlo"],
+    ["Zulte Waregem", "Cercle Brugge"],
+    ["Charleroi", "La Louviere"],
+    ["Club Brugge", "Antwerp"],
+    ["Cenk", "Oud Herverlee Leuven"],
+    ["Anderlecht", "Union Saint Gilloise"],
+    ["Gent", "STVV"]
 ]
 ],
 
@@ -282,15 +283,15 @@ $leagues =[
 ],
 
 "fixtures" => [
-    ["Estoril", "Arouca"],
-    ["Alverca", "Rio Ave"],
-    ["Tondela", "Vitoria"],
-    ["Santa Clara", "Sporting"],
-    ["AVS", "Gil Vicente"],
-    ["Familicao", "Porto"],
-    ["Benfica", "Casa Pia"],
-    ["Braga", "Moreirense"],
-    ["Estrela", "Nacional"]
+    ["Vitoria", "AVS"],
+    ["Casa Pia", "Alverca"],
+    ["Moreirense", "Familicao"],
+    ["Nacional", "Benfica"],
+    ["Gil Vicente", "Tondela"],
+    ["Rio Ave", "Santa Clara"],
+    ["Sporting", "Estrela"],
+    ["Porto", "Estoril"],
+    ["Arouca", "Braga"]
 ]
 ],
 "EnglishChampionship" => [
@@ -321,22 +322,22 @@ $leagues =[
     ["team" => "Cardiff", "MP" => 46, "MW" => 9, "MD" => 17, "GF" => 48, "GA" => 73],
 ], 
 "fixtures" => [
-["Sheffield Wednesday", "Norwich"],
-["QPR", "Southampton"],
-["Preston", "Swansea"],
-["Portsmouth", "Wrexham"],
-["Watford", "Bristol City"],
-["Hull", "Portsmouth"],
-["Blackburn", "Derby County"],
-["Millwall", "Preston"],
-["Swansea", "Ipswich"],
-["Stoke", "Coventry"],
-["West Brom", "Oxford"],
-["Southampton", "Sheffield Wednesday"],
-["Sheffield United", "QPR"],
-["Middlesbrough", "Birmingham"],
-["Norwich", "Leicester"],
-["Wrexham", "Charlton"]
+["Norwich", "Oxford"],
+["Middlesbrough", "Coventry"],
+["Stoke", "Charlton"],
+["Swansea", "Derby County"],
+["Watford", "Preston"],
+["Hull", "Ipswich"],
+["Southampton", "Leicester"],
+["Sheffield United", "Portsmouth"],
+["Blackburn", "QPR"],
+["Millwall", "Sheffield Wednesday"],
+["Wrexham", "Bristol City"],
+["West Ham", "Birmingham"],
+//["Sheffield United", "QPR"],
+//["Middlesbrough", "Birmingham"],
+//["Norwich", "Leicester"],
+//["Wrexham", "Charlton"]
 ]
 ],
 "AustraliaALeague" =>[
@@ -356,12 +357,12 @@ $leagues =[
     [ "team" => "Perth Glory", "MP" => 26, "MW" => 4, "MD" => 5, "GF" => 22, "GA" => 56 ],
 	],
 	"fixtures" => [
-["Adelaide United ", "Western Sydney"],
-["Perth Glory", "Central Coast"],
-["Wellington Phoenix", "Auckland"],
-["Melbourne City", "Melbourne Victory"],
-["Sydney", "Macarthur Sydney"],
-["Brisbane Roar", "Newcastle"]
+["Brisbane Roar", "Melbourne Victory"],
+["Wellington Phoenix", "Adelaide United"],
+["Central Coast", "Melbourne City"],
+["Western Sydney", "Sydney"],
+["Auckland", "Newcastle Jets"],
+["Macarthur", "Perth Glory"]
 ]
 ],
 "englishLeagueOneTeams" => [
@@ -393,20 +394,20 @@ $leagues =[
 ],
 
 "fixtures" => [
-    ["Reading", "Stevenage"],
-    ["Northampton", "Mansfield"],
-    ["Wycombe", "Leyton Orient"],
-    ["Stockport", "Luton"],
-    ["Bolton", "Port Vale"],
-    ["Exeter", "Wigan"],
-    ["Huddersfield", "Plymouth"],
-    ["Bradford", "Burton"],
-    ["Blackpool", "Cardiff"],
-    ["Peterborough", "Wimbledon"],
-    ["Doncaster", "Barnsley"],
-    ["Rotherham", "Lincoln"],
-    //["Peterborough", "Wimbledon"],
-     //["Doncaster", "Barnsley"],
+    ["Peterborough", "Stevenage"],
+    ["Luton", "Huddersfield"],
+    ["Stockport", "Barnsley"],
+    ["Blackpool", "Reading"],
+    ["Wigan", "Stevenage"],
+    ["Rotherham", "Wycombe"],
+    ["Doncaster", "Peterborough"],
+    ["Lincoln", "Port Vale"],
+    ["Cardiff", "Mansfield"],
+    ["Luton", "Bolton"],
+    ["Bradford", "Exeter"],
+    ["Plymouth", "Northampton"],
+    ["Huddersfield", "Wimbledon"],
+     ["Burton", "Leyton Orient"],
 	 //["Rotherham", "Lincoln"],
 
 ]
@@ -442,16 +443,18 @@ $leagues =[
 
 "fixtures" => [
     
-    ["Newport", "Walsall"],
-    ["Harrogate", "Oldham"],
-    ["Chesterfield", "Accrington Stanley"],
-    ["Barrow", "Grimsby"],
-    ["Swindon", "Tranmere"],
-    ["Barnet", "MK Dons"],
-    ["Crawley", "Fleetwood"],
-    ["Salford", "Cambridge"],
-    ["Bristol Rovers", "Gillingham"],
-	["Cheltenham", "Notts County"]
+    ["Grimsby", "Tranmere"],
+    ["Accrington Stanley", "Oldham"],
+    ["MK Dons", "Fleetwood"],
+    ["Colchester", "Cheltenham"],
+    ["Chesterfield", "Swindon"],
+    ["Bristol Rovers", "Notts County"],
+    ["Salford", "Crawley"],
+    ["Barnet", "Harrogate"],
+    ["Newport", "Barrow"],
+	["Shrewsbury", "Gillingham"],
+    ["Cambridge", "Crewe"],
+	["Walsall", "Bromley"],
 ]
 ],
 
@@ -482,18 +485,18 @@ $leagues =[
 ],
 
 "fixtures" => [
-    ["Real Sociedad B", "Huesca"],
-    ["Mirandes", "Gijon"],
-    ["Real Sociedad B", "Leganes"],
-    ["Eibar", "Albacete"],
-    ["Huesca", "Andorra"],
-    ["Deportivo", "Cultural Leonesa"],
-    ["Malaga", "Cordoba"],
-    ["Las Palmas", "Racing"],
-    ["Ceuta", "Almeria"],
-    ["Granada", "Zaragoza"],
-  ["Cadiz", "Valladolid"],
-  ["Burgos", "Castellon"]
+    ["Gijon", "Andorra"],
+    ["Ceuta", "Burgos"],
+    ["Cultural Leonesa", "Granada"],
+    ["Almeria", "Huesca"],
+    ["Albacete", "Deportivo"],
+    ["Valladoloid", "Malaga"],
+    ["Zaragoza", "Leganes"],
+    ["Racing", "Eibar"],
+    ["Mirandes", "Real Sociedad B"],
+    ["Cordoba", "Cadiz"],
+  ["Castellon", "Las Palmas"],
+  //["Burgos", "Castellon"]
 ]
 ],
 "italianSerieBTeams" => [
@@ -521,15 +524,16 @@ $leagues =[
 ],
 
 "fixtures" => [
-    ["Spezia", "Bari"],
-    ["Frisonone", "Modena"],
-    ["Reggiana", "Virtus Entella"],
-    ["Mantova", "Padova"],
-    ["Sudtirol", "Carrarese"],
-    ["Juve Stabia", "Palermo"],
-    ["Venezia", "Sampdoria"],
-    ["Cesena", "Avellino"],
-    ["Pescara", "Monza"],
+    ["Cesena", "Modena"],
+    ["Pescara", "Padova"],
+    ["Sudtirol", "Avellino"],
+    ["Empoli", "Bari"],
+    ["Venezia", "Mantova"],
+    ["Reggiana", "Frisonone"],
+    ["Catanzaro", "Virtus Entella"],
+    ["Palermo", "Carrarese"],
+    ["Juve Stabia", "Monza"],
+    ['Spezia', 'Sampdoria']
 ]
 ],
 "frenchLigueTwoTeams" => [
@@ -555,16 +559,16 @@ $leagues =[
 ],
 
 "fixtures" => [
-    ["Clermont Foot", "Amiens"],
-    ["Bastia", "Reims"],
-    ["Montpellier", "Annecy"],
-    ["Montpellier", "Annecy"],
-    ["Grenoble", "Rodez"],
-    ["Nancy", "Laval"],
-    ["Dunkerque", "Boulogne"],
-    ["Le Mans", "Red Star"],
-    ["Guingamp", "Pau"],
-	["Troyes", "St. Etienne"]
+    ["Boulogne", "Grenoble"],
+    ["Annecy", "Bastia"],
+    ["Pau", "Le Mans"],
+    ["Rodez", "Dunkerque"],
+    ["Laval", "Troyes"],
+    ["Red Star", "Clermont Foot"],
+    ["Amiens", "Guingamp"],
+    ["St. Etienne", "Nancy"],
+    ["Reims", "Montpellier"],
+	["Bastia", "Laval"]
 ]
 ],
 "germanBundesliga2Teams" => [
@@ -590,18 +594,18 @@ $leagues =[
 ],
 
 "fixtures" => [
-    ["Bochum", "Magdeburg"],
-    ["Dusseldorf", "Kaiserslautern"],
-    ["Paderborn", "Greuther Furth"],
-    ["Dynamo", "Nurnberg"],
-    ["Greuther Furth", "Preuben Munster"],
-    ["Schalke", "Elvesberg"],
-    ["Arminia", "Karlsruher"],
-    ["Hannover", "Darmstadt"],
-    ["Kaiserslautern", "Hertha"],
-    ["Magdeburg", "Paderborn"],
-    ["Holstein Kiel", "Dusseldorf"],
-    ["Braunschweig", "Bochum"]
+    ["Bochum", "Dynamo"],
+    ["Hertha", "Braunschweig"],
+    ["Paderborn", "Hannover"],
+    ["Preuben Munster", "Schalke"],
+    ["Dusseldorf", "Magdeburg"],
+    ["Darmstadt", "Furth"],
+    ["Kaiserslautern", "Holstein Kiel"],
+    ["Nurnberg", "Arminia"],
+    ["Karlsruher", "Elvesberg"],
+    //["Magdeburg", "Paderborn"],
+    //["Holstein Kiel", "Dusseldorf"],
+    //["Braunschweig", "Bochum"]
 ]
 ],
 "eersteDivisieTeams" => [
@@ -629,18 +633,18 @@ $leagues =[
 ],
 
 "fixtures" => [
-    ["Den Haag", "Roda"],
-    ["Almere", "MVV"],
-    ["Jong Ajax", "Dordrecht"],
-    ["Jong Utrecht", "Emmen "],
-    ["Eindhoven", "Den Bosch"],
-    ["Wilhelm II", "Top Oss"],
-    ["Jong AZ", "VVV"],
-    ["Vitesse", "Cambuur"],
-    ["Helmond", "Jong PSV"],
-    ["Waalwijk ", "De Graafschap"],
-    //["Jong AZ", "VVV"],
-    //["Vitesse", "Cambuur"],
+    ["Eindhoven", "Cambuur"],
+    ["Wilhelm II", "Emmen"],
+    ["Den Bosch", "Almere"],
+    ["Cambuur", "Den Haag "],
+    ["Jong Ajax", "Eindhoven"],
+    ["MVV", "Jong AZ"],
+    ["Jong PSV", "Jong Utrecht"],
+    ["VVV", "Wilhelm II"],
+    ["De Graafschap", "Helmond"],
+    ["TOP Oss ", "Waalwijk"],
+    ["Dordrecht", "Vitesse"],
+    ["Emmen", "Roda"],
     //["Helmond", "Jong PSV"],
     //["Waalwijk", "De Graafschap"]
 ]
@@ -665,14 +669,14 @@ $leagues =[
 ],
 
 "fixtures" => [
-    ["Liege", "Jong Gent"],
-    ["Lommel", "Beveren"],
-    ["Kortrijk", "Patro Eisden"],
-    ["Seraing", "Lokeren-Temse"],
-    ["Club NXT", "Lierse K"],
-    ["Daring Brussels", "Beerschot"],
-    ["Francs Borains", "ROC Charleroi"]
-    // ["Seraing", "Lierse K"],
+    ["Beveren", "Eupen"],
+    ["Francs Borains", "Liege"],
+    ["Lokerem-Temse", "Club NXT"],
+    ["RSCA Futures", "Seraing"],
+    ["Jong Gent", "Jong Genk"],
+    ["Kotrijk", "Lommel"],
+    ["Patro Eisden", "Daring Brussels"],
+     ["ROC Charleroi", "Beerschot"],
     // ["RFC Liege", "RFC Seraing"]
 ]
 ],
