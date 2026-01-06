@@ -1,193 +1,458 @@
 <?php
 
 include "teams.php";
-?>
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>England</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+include "includes/db.php";
+include "includes/header.php";
 
-
-
-
-
-
-
-
-
-
-
-
-<?php
-
-$leagueKeys = array_keys($leagues); // Get all league names
-$firstLeague = $leagueKeys[0];      // Pick the first one
-$leagueName = $firstLeague;
-$teams = $leagues[$leagueName]["teams"];
-
-echo "<h2>$leagueName - League Table</h2>";
-echo "<table border='0' cellpadding='0'>";
-echo "<tr><th>Team</th><th>MP</th><th>MW</th><th>MD</th><th>ML</th><th>GF</th><th>GA</th><th>GD</th><th>Points</th><th>Power %</th></tr>";
-
-foreach ($teams as $row) {
-    echo "<tr>
-        <td>{$row["team"]}</td>
-        <td>{$row["MP"]}</td>
-        <td>{$row["MW"]}</td>
-        <td>{$row["MD"]}</td>
-        <td>" . ($row["MP"] - $row["MW"] - $row["MD"]) . "</td>
-        <td>{$row["GF"]}</td>
-        <td>{$row["GA"]}</td>
-        <td>" . ($row["GF"] - $row["GA"]) . "</td>
-        <td>" . (($row["MW"] * 3) + $row["MD"]) . "</td>
-        <td>" . round((($row["MW"] / $row["MP"]) * 100), 2) . "%</td>
-    </tr>";
-}
-
-echo "</table><br>";
-//echo "</div>";
-
-
-
-/*
-// function to calculate power score
+// Calculate a team power score
 function calculatePower($team) {
     return ($team["MW"] * 3) + ($team["MD"]) + ($team["GF"] - $team["GA"]) * 0.2;
 }
 
-// loop through each league
-foreach ($leagues as $leagueName => $leagueData) {
-    $teams = $leagueData["teams"];
-   // $fixtures = $leagueData["fixtures"];
-}
-
-
-echo "<div class='main-item'>";
-	echo "<div class='item'>";
-	echo "<div class='table-responsive'>";
-   // echo "<h2>$leagueName - Fixture Predictions</h2>";
-    echo "<table border='0' cellpadding='0'>";
-   // echo "<tr><th>Home</th><th>Away</th><th>Home Power</th><th>Away Power</th><th>Prediction</th></tr>";
-	echo "</div>";
-	echo "</div>";
-	echo "<div class='item'>";
-//echo "<h3>";
-//echo $LatestResults;
-	//echo "</h3>";
-	
-	 echo "</div>";
-
-	
-
-/*
-    foreach ($fixtures as $fixture) {
-        list($home, $away) = $fixture;
-
-        $homeTeam = null;
-        $awayTeam = null;
-
-        // find home and away teams in the teams list
-        foreach ($teams as $t) {
-            if ($t["team"] === $home) $homeTeam = $t;
-            if ($t["team"] === $away) $awayTeam = $t;
-        }
-
-        if (!$homeTeam || !$awayTeam) continue;
-
-        // calculate power
-        $homePower = calculatePower($homeTeam) + 10; // +10 bonus for home
-        $awayPower = calculatePower($awayTeam);
-
-        $diff = $homePower - $awayPower;
-        $prediction = "X (Draw)";
-        if ($diff >= 10) {
-            $prediction = "1 (Home Win)";
-        } elseif ($diff >= 5) {
-            $prediction = "1X (Home Win or Draw)";
-        } elseif ($diff <= -10) {
-            $prediction = "2 (Away Win)";
-        } elseif ($diff <= -5) {
-            $prediction = "X2 (Away Win or Draw)";
-        }
-
-        echo "<tr>";
-        echo "<td>{$home}</td>";
-        echo "<td>{$away}</td>";
-        echo "<td>" . number_format($homePower, 2) . "</td>";
-        echo "<td>" . number_format($awayPower, 2) . "</td>";
-        echo "<td>{$prediction}</td>";
-        echo "</tr>";
+// Find a team by name
+function findTeam($teams, $name) {
+    foreach ($teams as $t) {
+        if ($t["team"] === $name) return $t;
     }
-
-    echo "</table><br>";
-
-*/
-// calculate stats for each team
-foreach ($teams as $key => $t) {
-    $ML = $t["MP"] - ($t["MW"] + $t["MD"]);
-    $GD = $t["GF"] - $t["GA"];
-    $points = $t["MW"] * 3 + $t["MD"];
-    $power = ($points / ($t["MP"] * 3)) * 100;
-
-    $teams[$key]["ML"] = $ML;
-    $teams[$key]["GD"] = $GD;
-    $teams[$key]["points"] = $points;
-    $teams[$key]["power"] = round($power, 2);
+    return null;
 }
 
-// sort league table by points
-usort($teams, function($a, $b) {
-    if ($a['points'] == $b['points']) {
-        return $b['GD'] <=> $a['GD'];
-    }
-    return $b['points'] <=> $a['points'];
-});
-/*
-// display table
-echo "<h2>$leagueName - League Table</h2>";
-echo "<table border='0' cellpadding='0'>";
-echo "<tr><th>Team</th><th>MP</th><th>MW</th><th>MD</th><th>ML</th><th>GF</th><th>GA</th><th>GD</th><th>Points</th><th>Power %</th></tr>";
-foreach ($teams as $row) {
-    echo "<tr>
-        <td>{$row["team"]}</td>
-        <td>{$row["MP"]}</td>
-        <td>{$row["MW"]}</td>
-        <td>{$row["MD"]}</td>
-        <td>{$row["ML"]}</td>
-        <td>{$row["GF"]}</td>
-        <td>{$row["GA"]}</td>
-        <td>{$row["GD"]}</td>
-        <td>{$row["points"]}</td>
-        <td>{$row["power"]}%</td>
-    </tr>";
-}
-echo "</table><br>";
-echo "</div>";
-*/
-	
-// calculate stats for each team
-foreach ($teams as $key => $t) {
-    $ML = $t["MP"] - ($t["MW"] + $t["MD"]);
-    $GD = $t["GF"] - $t["GA"];
-    $points = $t["MW"] * 3 + $t["MD"];
-    $power = ($points / ($t["MP"] * 3)) * 100;
-
-    $teams[$key]["ML"] = $ML;
-    $teams[$key]["GD"] = $GD;
-    $teams[$key]["points"] = $points;
-    $teams[$key]["power"] = round($power, 2);
-}
-
-// sort league table by points
-usort($teams, function($a, $b) {
-    if ($a['points'] == $b['points']) {
-        return $b['GD'] <=> $a['GD'];
-    }
-    return $b['points'] <=> $a['points'];
-});
+// Load EPL teams
+$teams = $leagues["EPL"]["teams"];
 
 ?>
+<?php
+$host = "localhost";
+$user = "root";
+$pass = "";
+$dbname = "leagues";   // your actual DB NAME
+
+$conn = new mysqli($host, $user, $pass, $dbname);
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+?>
+
+
+<h2>EPL Table for Last Season</h2>
+
+<table border="1" cellpadding="5" cellspacing="0">
+    <tr>
+        <th>Team</th>
+        <th>MP</th>
+        <th>MW</th>
+        <th>MD</th>
+        <th>GF</th>
+        <th>GA</th>
+        <th>Power</th>
+    </tr>
+
+    <?php foreach ($teams as $row): ?>
+        <tr>
+            <td><?= $row['team'] ?></td>
+            <td><?= $row['MP'] ?></td>
+            <td><?= $row['MW'] ?></td>
+            <td><?= $row['MD'] ?></td>
+            <td><?= $row['GF'] ?></td>
+            <td><?= $row['GA'] ?></td>
+            <td><?= number_format(calculatePower($row), 2) ?></td>
+        </tr>
+    <?php endforeach; ?>
+  
+    <?php
+
+    
+    
+  
+$sql = "
+    SELECT 
+        team,
+        MP,
+        MW,
+        MD,
+        GF,
+        GA,
+        (MW * 3) + MD + ((GF - GA) * 0.2) AS power
+    FROM teams
+    WHERE league = 'EPL'
+    ORDER BY power DESC
+";
+
+$result = $conn->query($sql);
+
+if (!$result) {
+    die("SQL Error: " . $conn->error . " — SQL: " . $sql);
+}
+
+// fetch one row for inspection (you can remove this debug block later)
+$row = $result->fetch_assoc();
+if (!$row) {
+    die("No rows returned. (Maybe no EPL rows in teams table)");
+}
+
+// Show what columns are present (helps diagnose undefined array key)
+//echo "<pre>ROW KEYS: ";
+//print_r(array_keys($row));
+//echo "\nROW (first): ";
+//print_r($row);
+echo "</pre>";
+
+// rewind result pointer so you can loop from the start
+$result->data_seek(0);
+
+// now the safe loop to display
+echo '<table border="1" cellpadding="5" cellspacing="0">
+    <tr>
+        <th>Team</th><th>MP</th><th>MW</th><th>MD</th><th>GF</th><th>GA</th><th>Power</th>
+    </tr>';
+echo "<br>";
+echo "<h2>";
+echo "Current Table";
+echo "</h2>";
+while ($row = $result->fetch_assoc()) {
+    // avoid undefined index by using null coalescing
+    $power = isset($row['power']) ? number_format($row['power'], 2) : 'N/A';
+    echo "<tr>
+        <td>{$row['team']}</td>
+        <td>{$row['MP']}</td>
+        <td>{$row['MW']}</td>
+        <td>{$row['MD']}</td>
+        <td>{$row['GF']}</td>
+        <td>{$row['GA']}</td>
+        <td>{$power}</td>
+    </tr>";
+}
+
+echo "</table>";
+
+?>
+<?php
+
+
+// Load EPL teams
+$teams = $leagues["EnglishChampionship"]["teams"];
+
+?>
+<?php
+$host = "localhost";
+$user = "root";
+$pass = "";
+$dbname = "leagues";   // your actual DB NAME
+
+$conn = new mysqli($host, $user, $pass, $dbname);
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+?>
+
+
+<h2>English Championship Table for Last Season</h2>
+
+<table border="1" cellpadding="5" cellspacing="0">
+    <tr>
+        <th>Team</th>
+        <th>MP</th>
+        <th>MW</th>
+        <th>MD</th>
+        <th>GF</th>
+        <th>GA</th>
+        <th>Power</th>
+    </tr>
+
+    <?php foreach ($teams as $row): ?>
+        <tr>
+            <td><?= $row['team'] ?></td>
+            <td><?= $row['MP'] ?></td>
+            <td><?= $row['MW'] ?></td>
+            <td><?= $row['MD'] ?></td>
+            <td><?= $row['GF'] ?></td>
+            <td><?= $row['GA'] ?></td>
+            <td><?= number_format(calculatePower($row), 2) ?></td>
+        </tr>
+    <?php endforeach; ?>
+ 
+    <?php
+
+    
+    
+  
+$sql = "
+    SELECT 
+        team,
+        MP,
+        MW,
+        MD,
+        GF,
+        GA,
+        (MW * 3) + MD + ((GF - GA) * 0.2) AS power
+    FROM teams
+    WHERE league = 'EnglishChampionship'
+    ORDER BY power DESC
+";
+
+$result = $conn->query($sql);
+
+if (!$result) {
+    die("SQL Error: " . $conn->error . " — SQL: " . $sql);
+}
+
+// fetch one row for inspection (you can remove this debug block later)
+$row = $result->fetch_assoc();
+if (!$row) {
+    die("No rows returned. (Maybe no EPL rows in teams table)");
+}
+
+// Show what columns are present (helps diagnose undefined array key)
+//echo "<pre>ROW KEYS: ";
+//print_r(array_keys($row));
+//echo "\nROW (first): ";
+//print_r($row);
+echo "</pre>";
+
+// rewind result pointer so you can loop from the start
+$result->data_seek(0);
+
+// now the safe loop to display
+echo '<table border="1" cellpadding="5" cellspacing="0">
+    <tr>
+        <th>Team</th><th>MP</th><th>MW</th><th>MD</th><th>GF</th><th>GA</th><th>Power</th>
+    </tr>';
+echo "<br>";
+echo "<h2>";
+echo "Current Table";
+echo "</h2>";
+while ($row = $result->fetch_assoc()) {
+    // avoid undefined index by using null coalescing
+    $power = isset($row['power']) ? number_format($row['power'], 2) : 'N/A';
+    echo "<tr>
+        <td>{$row['team']}</td>
+        <td>{$row['MP']}</td>
+        <td>{$row['MW']}</td>
+        <td>{$row['MD']}</td>
+        <td>{$row['GF']}</td>
+        <td>{$row['GA']}</td>
+        <td>{$power}</td>
+    </tr>";
+}
+
+$teams = $leagues["englishLeagueOneTeams"]["teams"];
+
+?>
+<?php
+$host = "localhost";
+$user = "root";
+$pass = "";
+$dbname = "leagues";   // your actual DB NAME
+
+$conn = new mysqli($host, $user, $pass, $dbname);
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+?>
+
+
+
+
+<table border="1" cellpadding="5" cellspacing="0">
+    <tr>
+        <th>Team</th>
+        <th>MP</th>
+        <th>MW</th>
+        <th>MD</th>
+        <th>GF</th>
+        <th>GA</th>
+        <th>Power</th>
+    </tr>
+
+    <?php foreach ($teams as $row): ?>
+        <tr>
+            <td><?= $row['team'] ?></td>
+            <td><?= $row['MP'] ?></td>
+            <td><?= $row['MW'] ?></td>
+            <td><?= $row['MD'] ?></td>
+            <td><?= $row['GF'] ?></td>
+            <td><?= $row['GA'] ?></td>
+            <td><?= number_format(calculatePower($row), 2) ?></td>
+        </tr>
+    <?php endforeach; ?>
+  <h2>English League One Table for Last Season</h2>
+    <?php
+
+    
+    
+  
+$sql = "
+    SELECT 
+        team,
+        MP,
+        MW,
+        MD,
+        GF,
+        GA,
+        (MW * 3) + MD + ((GF - GA) * 0.2) AS power
+    FROM teams
+    WHERE league = 'englishLeagueOneTeams'
+    ORDER BY power DESC
+";
+
+$result = $conn->query($sql);
+
+if (!$result) {
+    die("SQL Error: " . $conn->error . " — SQL: " . $sql);
+}
+
+// fetch one row for inspection (you can remove this debug block later)
+$row = $result->fetch_assoc();
+if (!$row) {
+    die("No rows returned. (Maybe no EPL rows in teams table)");
+}
+
+// Show what columns are present (helps diagnose undefined array key)
+//echo "<pre>ROW KEYS: ";
+//print_r(array_keys($row));
+//echo "\nROW (first): ";
+//print_r($row);
+echo "</pre>";
+
+// rewind result pointer so you can loop from the start
+$result->data_seek(0);
+
+// now the safe loop to display
+echo '<table border="1" cellpadding="5" cellspacing="0">
+    <tr>
+        <th>Team</th><th>MP</th><th>MW</th><th>MD</th><th>GF</th><th>GA</th><th>Power</th>
+    </tr>';
+echo "<br>";
+echo "<h2>";
+echo "Current Table";
+echo "</h2>";
+while ($row = $result->fetch_assoc()) {
+    // avoid undefined index by using null coalescing
+    $power = isset($row['power']) ? number_format($row['power'], 2) : 'N/A';
+    echo "<tr>
+        <td>{$row['team']}</td>
+        <td>{$row['MP']}</td>
+        <td>{$row['MW']}</td>
+        <td>{$row['MD']}</td>
+        <td>{$row['GF']}</td>
+        <td>{$row['GA']}</td>
+        <td>{$power}</td>
+    </tr>";
+}
+
+
+$teams = $leagues["englishLeagueTwoTeams"]["teams"];
+
+?>
+<?php
+$host = "localhost";
+$user = "root";
+$pass = "";
+$dbname = "leagues";   // your actual DB NAME
+
+$conn = new mysqli($host, $user, $pass, $dbname);
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+?>
+
+
+
+
+<table border="1" cellpadding="5" cellspacing="0">
+    <tr>
+        <th>Team</th>
+        <th>MP</th>
+        <th>MW</th>
+        <th>MD</th>
+        <th>GF</th>
+        <th>GA</th>
+        <th>Power</th>
+    </tr>
+
+    <?php foreach ($teams as $row): ?>
+        <tr>
+            <td><?= $row['team'] ?></td>
+            <td><?= $row['MP'] ?></td>
+            <td><?= $row['MW'] ?></td>
+            <td><?= $row['MD'] ?></td>
+            <td><?= $row['GF'] ?></td>
+            <td><?= $row['GA'] ?></td>
+            <td><?= number_format(calculatePower($row), 2) ?></td>
+        </tr>
+    <?php endforeach; ?>
+  <h2>English League Two Table for Last Season</h2>
+    <?php
+
+    
+    
+  
+$sql = "
+    SELECT 
+        team,
+        MP,
+        MW,
+        MD,
+        GF,
+        GA,
+        (MW * 3) + MD + ((GF - GA) * 0.2) AS power
+    FROM teams
+    WHERE league = 'englishLeagueTwoTeams'
+    ORDER BY power DESC
+";
+
+$result = $conn->query($sql);
+
+if (!$result) {
+    die("SQL Error: " . $conn->error . " — SQL: " . $sql);
+}
+
+// fetch one row for inspection (you can remove this debug block later)
+$row = $result->fetch_assoc();
+if (!$row) {
+    die("No rows returned. (Maybe no EPL rows in teams table)");
+}
+
+// Show what columns are present (helps diagnose undefined array key)
+//echo "<pre>ROW KEYS: ";
+//print_r(array_keys($row));
+//echo "\nROW (first): ";
+//print_r($row);
+echo "</pre>";
+
+// rewind result pointer so you can loop from the start
+$result->data_seek(0);
+
+// now the safe loop to display
+echo '<table border="1" cellpadding="5" cellspacing="0">
+    <tr>
+        <th>Team</th><th>MP</th><th>MW</th><th>MD</th><th>GF</th><th>GA</th><th>Power</th>
+    </tr>';
+echo "<br>";
+echo "<h2>";
+echo "Current Table";
+echo "</h2>";
+while ($row = $result->fetch_assoc()) {
+    // avoid undefined index by using null coalescing
+    $power = isset($row['power']) ? number_format($row['power'], 2) : 'N/A';
+    echo "<tr>
+        <td>{$row['team']}</td>
+        <td>{$row['MP']}</td>
+        <td>{$row['MW']}</td>
+        <td>{$row['MD']}</td>
+        <td>{$row['GF']}</td>
+        <td>{$row['GA']}</td>
+        <td>{$power}</td>
+    </tr>";
+}
+
+echo "</table>";
+?>
+<?php include "includes/footer.php"; ?>
+
+</body>
+</html>
