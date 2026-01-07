@@ -215,6 +215,4 @@ foreach ($leagues as $leagueName => $leagueData) {
         echo "</div>";
         echo "</div>";-->
         
-    }
-}
-*/
+    
