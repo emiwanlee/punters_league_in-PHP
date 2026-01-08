@@ -29,16 +29,17 @@ $leagues =[
 ],
 
 	"fixtures" => [
-        ["West Ham", "Nottingham"],
-    ["Crystal Palace", "Aston Villa"],
-    ["Fulham", "Chelsea"],
+        ["Manchester United", "Manchester City"],
+    ["Sunderland", "Crystal Palace"],
+    ["Chelsea", "Brentford"],
 	["Brentford", "Sunderland"],
-	["Bournemouth", "Tottenham"],
-	["Manchester City", "Brighton"],
-	["Everton", "Wolves"],
-	["Burnley", "Manchester United"],
-	["Newcastle", "Leeds"],
-	["Arsenal", "Liverpool"]
+	["Liverpool", "Burnley"],
+	["Tottenham", "West Ham"],
+	["Leeds", "Fulham"],
+	["Nottingham", "Arsenal"],
+	["Wolves", "Newcastle"],
+	["Aston Villa", "Everton"],
+  ["Brighton", "Bournemouth"]
 	
 
 ]
