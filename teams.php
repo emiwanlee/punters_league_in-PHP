@@ -72,8 +72,8 @@ $leagues =[
 	"fixtures" =>[
 	    ["Getafe", "Real Sociedad"],
     ["Oviedo", "Real Betis"],
-	["Villrreal", "Alaves"],
-    ["Girona", "Oasuna"],
+	["Villarreal", "Alaves"],
+    ["Girona", "Osasuna"],
     ["Valencia", "Elche"],
     ["Rayo Vallecano", "Mallorca"],
     ["Levante", "Espanyol"],
@@ -359,7 +359,7 @@ $leagues =[
 	"fixtures" => [
 ["Macarthur", "Auckland"],
   ["Melbourne City", "Brisbane Roar"],
-  ["Brisbane Roar", "Brisbane Roar"],
+  ["Brisbane Roar", "Auckland"],
   ["Malbourne Victory", "Western Sydney"],
   ["Macarthur", "Sydney"],
   ["Perth Glory", "Central Coast"],
